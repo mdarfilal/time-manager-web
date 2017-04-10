@@ -7,13 +7,15 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { TodayComponent } from './today/today.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    TodayComponent
+    TodayComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
