@@ -1,3 +1,4 @@
+import { routing } from './app.routes';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,7 +21,8 @@ import { DetailsComponent } from './details/details.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
