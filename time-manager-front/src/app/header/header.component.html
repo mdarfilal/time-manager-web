@@ -1,3 +1,13 @@
-<input type="button" routerLink="/today" value="Aujourd'hui">
-<input type="button" routerLink="/details" value="Détails">
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <a class="navbar-brand" routerLink="/">Time Manager</a>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="/today">Aujourd'hui</a>
+      <a class="nav-item nav-link"routerLink="/details">Détails</a>
+    </div>
+  </div>
+  <div class="navbar-right">
+    <a class="nav-item nav-link" href="https://github.com/mdarfilal/time-manager-web">GitHub</a>
+  </div>
+</nav>
 <router-outlet></router-outlet>
