@@ -1,5 +1,4 @@
 import { Component, OnInit, Output } from '@angular/core';
-import {CalendarModule} from 'primeng/primeng';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -10,7 +9,7 @@ import { Observable } from 'rxjs';
 export class TodayComponent implements OnInit {
 
   // Current Date
-  today: Observable<Date> = Observable.interval(1000).map(x => new Date());
+  today: Observable<Date> = Observable.interval(100).map(x => new Date());
   constructor() { }
 
   ngOnInit() {
