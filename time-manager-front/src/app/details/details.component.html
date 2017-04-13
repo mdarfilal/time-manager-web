@@ -1,11 +1,19 @@
 <p>Bonus / Malus : <input type="datetime" size="5"></p>
 
-<div>
-  <h2> 10 derniers jours</h2>
+<div *ngIf="lastTenDays?.length > 0">
+  <p> 10 derniers jours</p>
   
-  <div *ngFor="let day of lastTenDays">
-    <!-- TODO DATA TABLE -->
-  </div>
+  <!-- Table -->
+  <table class="table">
+    <th *ngFor="let column of dataTableColumns">{{column}}</th> <!-- Header of datatable -->
+    <tr *ngFor="let day of lastTenDays">      <!-- Print all last ten days -->
+      <td>{{day.dateOfDay | date:'EE dd/MM/yyyy'}}</td>
+      <td>{{day.beginOfDay | date:'HH:mm'}}</td>
+      <td>{{day.beginOfLunch | date:'HH:mm'}}</td>
+      <td>{{day.endOfLunch | date:'HH:mm'}}</td>
+      <td>{{day.endOfDay | date:'HH:mm'}}</td>
+    </tr>
+  </table>
 
   <div>
     <!-- TODO charts -->

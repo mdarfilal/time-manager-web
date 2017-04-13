@@ -1,3 +1,4 @@
+import { myDays } from './../data/myDays';
 import { Day } from './../model/day.model';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
-  lastTenDays: Day[];
+ // lastTenDays: Day[];
+  lastTenDays: Day[] = myDays;
+  dataTableColumns = ['Jour', 'Début de journée', 'Début de déjeuner', 'Fin de déjeuner', 'Fin de journée'];
   constructor() { }
 
   ngOnInit() {
