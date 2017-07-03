@@ -1,14 +1,15 @@
 package fr.mdarfilal.time.manager.dao;
 
-import java.util.List;
+import java.io.Serializable;
+
+import javax.transaction.Transactional;
+
+import org.springframework.data.repository.CrudRepository;
 
 import fr.mdarfilal.time.manager.model.Day;
 
-public interface IDayDao {
+@Transactional
+public interface IDayDao extends CrudRepository<Day, Serializable> {
 
-	public void saveDay(Day day);
-
-	public Day getDay(Day day);
-
-	public List<Day> getLastTenDays();
+	public Day findByDateOfDay(String dateOfDay);
 }

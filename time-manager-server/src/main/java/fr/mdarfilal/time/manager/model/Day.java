@@ -9,18 +9,18 @@ import javax.persistence.Id;
 public class Day {
 
 	@Id
-	private Date dateOfDay;
+	private String dateOfDay;
 	private Date beginOfDay;
 	private Date beginOfLunch;
 	private Date endOfLunch;
 	private Date endOfDay;
 	private long totalOfDay;
 
-	public Date getDateOfDay() {
+	public String getDateOfDay() {
 		return dateOfDay;
 	}
 
-	public void setDateOfDay(Date dateOfDay) {
+	public void setDateOfDay(String dateOfDay) {
 		this.dateOfDay = dateOfDay;
 	}
 
