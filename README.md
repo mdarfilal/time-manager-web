@@ -1,5 +1,8 @@
 # time-manager-web
 
-## Front with Angular2
+## Front-end 
+- Angular2
 
-## Back with Spring boot REST
+## Back-end 
+- Spring Boot REST
+- Spring Data
