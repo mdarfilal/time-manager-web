@@ -22,10 +22,24 @@ public interface IDayService {
 	List<Day> findAllDays();
 
 	/**
-	 * Save the day
+	 * Save day
 	 * 
 	 * @param day
 	 */
 	void saveDay(Day day);
+
+	/**
+	 * Create day
+	 * 
+	 * @param day
+	 */
+	void createDay();
+
+	/**
+	 * Delete day
+	 * 
+	 * @param day
+	 */
+	void deleteDay(Day day);
 
 }

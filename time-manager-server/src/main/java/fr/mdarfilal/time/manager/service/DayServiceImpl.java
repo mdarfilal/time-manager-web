@@ -1,5 +1,6 @@
 package fr.mdarfilal.time.manager.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,23 @@ public class DayServiceImpl implements IDayService {
 
 	@Override
 	public void saveDay(Day day) {
+		if (day != null) {
+			dayDao.save(day);
+		}
+	}
+
+	@Override
+	public void createDay() {
+		Day day = new Day();
+		day.setBeginOfDay(new Date());
+		day.setDateOfDay("Today");
 		dayDao.save(day);
 	}
 
+	@Override
+	public void deleteDay(Day day) {
+		if (day != null) {
+			dayDao.delete(day);
+		}
+	}
 }
