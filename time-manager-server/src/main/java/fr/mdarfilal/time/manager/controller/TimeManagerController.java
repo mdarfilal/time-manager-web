@@ -25,7 +25,7 @@ public class TimeManagerController {
 
 	@RequestMapping("/hello")
 	public void helloWorld() {
-		LOGGER.info("Hello Spring Boot REST");
+		LOGGER.debug("Hello Spring Boot REST");
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/days")
