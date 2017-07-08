@@ -23,23 +23,27 @@ public class DayServiceImpl implements IDayService {
 
 	@Override
 	public List<Day> findAllDays() {
+		LOGGER.info("Getting all days");
 		return dayDao.findAll();
 	}
 
 	@Override
 	public Day findDay(String dateOfDay) {
+		LOGGER.info("Getting the day : " + dateOfDay);
 		return dayDao.findByDateOfDay(dateOfDay);
 	}
 
 	@Override
 	public void saveDay(Day day) {
 		if (day != null) {
+			LOGGER.info("Saving the day : " + day.getDateOfDay());
 			dayDao.save(day);
 		}
 	}
 
 	@Override
 	public void createDay() {
+		LOGGER.info("Creating a new day");
 		Day day = new Day();
 		day.setDateOfDay(TimerManagerDate.getDateOfDayFormatted(new Date()));
 		dayDao.save(day);
@@ -48,20 +52,9 @@ public class DayServiceImpl implements IDayService {
 	@Override
 	public void deleteDay(Day day) {
 		if (day != null) {
+			LOGGER.info("Deleting the day : " + day.getDateOfDay());
 			dayDao.delete(day);
 		}
 	}
 
-	@Override
-	public Day getToday() {
-		Day today = findDay(TimerManagerDate.getDateOfDayFormatted(new Date()));
-
-		if (today == null) {
-			LOGGER.info("Today not exists, create it");
-			createDay();
-			today = findDay(TimerManagerDate.getDateOfDayFormatted(new Date()));
-		}
-
-		return today;
-	}
 }

@@ -30,30 +30,24 @@ public class TimeManagerController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/{dateOfDay}")
-	public Day getDay(@PathVariable String dateOfDay) {
+	public Day getDayById(@PathVariable String dateOfDay) {
 		LOGGER.info("GET day : " + dateOfDay);
 		return dayService.findDay(dateOfDay);
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/today")
-	public Day getToday() {
-		LOGGER.info("GET today");
-		return dayService.getToday();
-	}
-
-	@RequestMapping(method = RequestMethod.POST, value = "/create")
+	@RequestMapping(method = RequestMethod.POST)
 	public void createDay() {
 		LOGGER.info("POST createDay");
 		dayService.createDay();
 	}
 
-	@RequestMapping(method = RequestMethod.PUT, value = "/save")
+	@RequestMapping(method = RequestMethod.PUT, value = "/{dateOfDay}")
 	public void saveDay(@RequestBody Day day) {
 		LOGGER.info("PUT saveDay");
 		dayService.saveDay(day);
 	}
 
-	@RequestMapping(method = RequestMethod.DELETE, value = "/delete")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/{dateOfDay}")
 	public void deleteDay(@RequestBody Day day) {
 		LOGGER.info("DELETE deleteDay");
 		dayService.deleteDay(day);
