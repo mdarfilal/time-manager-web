@@ -48,9 +48,9 @@ public class TimeManagerController {
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{dateOfDay}")
-	public void deleteDay(@RequestBody Day day) {
+	public void deleteDay(@PathVariable String dateOfDay) {
 		LOGGER.info("DELETE deleteDay");
-		dayService.deleteDay(day);
+		dayService.deleteDay(dateOfDay);
 	}
 
 }

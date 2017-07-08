@@ -38,8 +38,8 @@ public interface IDayService {
 	/**
 	 * Delete day
 	 * 
-	 * @param day
+	 * @param dateOfDay
 	 */
-	void deleteDay(Day day);
+	void deleteDay(String dateOfDay);
 
 }

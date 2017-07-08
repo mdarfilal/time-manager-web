@@ -43,17 +43,26 @@ public class DayServiceImpl implements IDayService {
 
 	@Override
 	public void createDay() {
-		LOGGER.info("Creating a new day");
-		Day day = new Day();
-		day.setDateOfDay(TimerManagerDate.getDateOfDayFormatted(new Date()));
-		dayDao.save(day);
+		String dateOfDay = TimerManagerDate.getDateOfDayFormatted(new Date());
+		Day day = findDay(dateOfDay);
+		if (day != null) {
+			LOGGER.info("Day already exists !");
+		} else {
+			LOGGER.info("Creating a new day");
+			day = new Day();
+			day.setDateOfDay(dateOfDay);
+			dayDao.save(day);
+		}
 	}
 
 	@Override
-	public void deleteDay(Day day) {
+	public void deleteDay(String dateOfDay) {
+		Day day = findDay(dateOfDay);
 		if (day != null) {
 			LOGGER.info("Deleting the day : " + day.getDateOfDay());
 			dayDao.delete(day);
+		} else {
+			LOGGER.info("The day doesn't exist !");
 		}
 	}
 
