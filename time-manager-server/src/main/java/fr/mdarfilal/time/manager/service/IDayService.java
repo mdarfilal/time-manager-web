@@ -42,4 +42,11 @@ public interface IDayService {
 	 */
 	void deleteDay(Day day);
 
+	/**
+	 * Get the actual day or creates it
+	 * 
+	 * @return
+	 */
+	Day getToday();
+
 }

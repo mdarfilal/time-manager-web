@@ -15,7 +15,7 @@ import fr.mdarfilal.time.manager.model.Day;
 import fr.mdarfilal.time.manager.service.IDayService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/days")
 public class TimeManagerController {
 
 	Logger LOGGER = LoggerFactory.getLogger(TimeManagerController.class);
@@ -23,36 +23,37 @@ public class TimeManagerController {
 	@Autowired
 	IDayService dayService;
 
-	@RequestMapping("/hello")
-	public void helloWorld() {
-		LOGGER.debug("Hello Spring Boot REST");
-	}
-
-	@RequestMapping(method = RequestMethod.GET, value = "/days")
+	@RequestMapping(method = RequestMethod.GET)
 	public List<Day> getAllDays() {
 		LOGGER.info("GET all days");
 		return dayService.findAllDays();
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/days/{dateOfDay}")
+	@RequestMapping(method = RequestMethod.GET, value = "/{dateOfDay}")
 	public Day getDay(@PathVariable String dateOfDay) {
 		LOGGER.info("GET day : " + dateOfDay);
 		return dayService.findDay(dateOfDay);
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/days/create")
+	@RequestMapping(method = RequestMethod.GET, value = "/today")
+	public Day getToday() {
+		LOGGER.info("GET today");
+		return dayService.getToday();
+	}
+
+	@RequestMapping(method = RequestMethod.POST, value = "/create")
 	public void createDay() {
 		LOGGER.info("POST createDay");
 		dayService.createDay();
 	}
 
-	@RequestMapping(method = RequestMethod.PUT, value = "/days/save")
+	@RequestMapping(method = RequestMethod.PUT, value = "/save")
 	public void saveDay(@RequestBody Day day) {
 		LOGGER.info("PUT saveDay");
 		dayService.saveDay(day);
 	}
 
-	@RequestMapping(method = RequestMethod.DELETE, value = "/days/delete")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/delete")
 	public void deleteDay(@RequestBody Day day) {
 		LOGGER.info("DELETE deleteDay");
 		dayService.deleteDay(day);
