@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import fr.mdarfilal.time.manager.controller.TimeManagerController;
+import fr.mdarfilal.time.manager.controller.DaysController;
 import fr.mdarfilal.time.manager.dao.IDayDao;
 import fr.mdarfilal.time.manager.model.Day;
 import fr.mdarfilal.time.manager.utils.TimerManagerDate;
@@ -16,7 +16,7 @@ import fr.mdarfilal.time.manager.utils.TimerManagerDate;
 @Service
 public class DayServiceImpl implements IDayService {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(TimeManagerController.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(DaysController.class);
 
 	@Autowired
 	private IDayDao dayDao;
